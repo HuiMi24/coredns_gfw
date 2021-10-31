@@ -1,7 +1,7 @@
 #!/bin/bash
 IP=$(hostname -I | awk '{print $1}')
-docker rm -fv corednsn
-docker run -d --name corednsn \
+docker rm -fv coredns
+docker run -d --name coredns \
            -m 256m \
            --log-opt max-size=16m \
            --restart=always \
