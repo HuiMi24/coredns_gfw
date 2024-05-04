@@ -2,7 +2,18 @@
 A coredns docker container to avoid DNS cache pollultion
 
 ## Build 
-sudo docker build -t coredns .
+
+```bash
+sudo docker-compose build
+```
+
+## Update China list
+```bash
+./update_list.sh
+```
 
 ## Run container
-sudo ./start.sh
+
+```bash
+sudo docker-compose up -d   
+```
