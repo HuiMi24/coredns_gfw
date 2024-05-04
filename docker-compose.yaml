@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  coredns:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: coredns
+    restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime
+      - ./config:/config
+      - ./update_list.sh:/app/update_list.sh
+    ports:
+      - "1153:53/tcp"
+      - "1153:53/udp"
+      - "19053:9053/tcp"
+      - "9153:9153"
+    logging:
+      options:
+        max-size: "1m"
+
+  # update_list:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   container_name: update_list
+  #   restart: always
+  #   volumes:
+  #     - ./config:/config
+  #     - ./cronfile:/etc/cron.d/cronfile
+  #   # command: [ "" ]
+  #   command: "crontab /etc/cron.d/cronfile && cron -f"
