@@ -19,6 +19,7 @@ services:
     logging:
       options:
         max-size: "1m"
+    command: ["-quiet"]
 
   # update_list:
   #   build:
